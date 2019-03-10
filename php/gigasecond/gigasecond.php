@@ -1,9 +1,7 @@
 <?php
 
-function from($date): DateTime
+function from($date): DateTimeImmutable
 {
-    $result = clone $date;
     $seconds = 10 ** 9;
-    $result->modify('+' . $seconds . ' seconds');
-    return $result;
+    return DateTimeImmutable::createFromMutable($date)->modify('+' . $seconds . ' seconds');
 }
